@@ -1,0 +1,12 @@
+1.
+PowerShell -ExecutionPolicy Unrestricted 
+
+2.
+Get-AppXPackage -AllUsers |Where-Object {$_.InstallLocation -like "*SystemApps*"} | Foreach {Add-AppxPackage -DisableDevelopmentMode -Register "$($_.InstallLocation)\AppXManifest.xml"}
+
+3.
+$manifest = (Get-AppxPackage Microsoft.WindowsStore).InstallLocation + '\AppxManifest.xml' ; Add-AppxPackage -DisableDevelopmentMode -Register $manifest 
+
+Run Command
+1.
+C:\Windows\System32\ctfmon.exe
